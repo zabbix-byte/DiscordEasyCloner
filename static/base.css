@@ -1,0 +1,48 @@
+:root {
+    --theme_dark: #0a0c10;
+    --secondary_dark: #7a828e;
+}
+
+body {
+    background-color: var(--theme_dark) !important;
+    font-family: 'Roboto Mono', monospace !important;
+    --sb-track-color: #232E33;
+    --sb-thumb-color: #4486d5;
+    --sb-size: 14px;
+}
+
+h1 {
+    color: var(--secondary_dark);
+    font-weight: bolder !important;
+}
+
+.button_action {
+    height: 50px;
+    width: 100%;
+}
+
+.title_input {
+    font-size: 25px;
+    font-weight: 400 !important;
+    color: #4486D5;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size)!important;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color)!important;
+    border-radius: 1px!important;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color)!important;
+    border-radius: 1px!important;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color)!important;
+    }
+}

@@ -1,0 +1,37 @@
+import json
+import logging
+import discord
+import asyncio
+import sys
+from baseapp.cloner.cloner import Clone
+from pypulse import Aplication
+
+data = json.loads(
+    open(f"{Aplication.Vars.APLICATION_PATH}\\baseapp\\cloner\\data.json", "r").read()
+)
+
+
+if sys.platform == "win32" and sys.version_info >= (3, 8, 0):
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+
+async def main():
+    fmt = "[%(levelname)s] %(message)s"
+    logging.basicConfig(
+        level=logging.INFO, format=fmt, filename=data["route"], filemode="w"
+    )
+    client = discord.Client()
+
+    @client.event
+    async def on_ready():
+        guild_from = client.get_guild(int(data.get("target")))
+        guild_to = client.get_guild(int(data.get("destination")))
+        await Clone.guild_edit(guild_to, guild_from)
+        await Clone.roles_delete(guild_to)
+        await Clone.channels_delete(guild_to)
+        await Clone.roles_create(guild_to, guild_from)
+        await Clone.categories_create(guild_to, guild_from)
+        await Clone.channels_create(guild_to, guild_from)
+        await client.close()
+
+    await client.start(data["token"], bot=False)

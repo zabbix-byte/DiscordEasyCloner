@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-6" style="border-right: 1px solid var(--secondary_dark);height: 100vh!important;">
+        <h1 style="padding: 1rem;">MADE BY ZABBIX</h1>
+        <form method="post" class="container" style="padding: 1rem 1rem 1rem 1rem;">
+          <div class="form-group">
+            <label class="title_input" for="token">Access Token</label>
+            {% if token_error == True %}
+              <input type="text" class="form-control is-invalid" id="token" value="{{ token_val }}" placeholder="Enter token" name="token" required />
+            {% else %}
+              <input type="text" class="form-control" id="token" name="token" value="{{ token_val }}" placeholder="Enter token" required />
+            {% endif %}
+
+            <small class="form-text text-muted">This is the token to access Discord.</small>
+          </div>
+
+          <div class="form-group">
+            <label class="title_input" for="target">Target Server ID</label>
+            <input type="text" class="form-control" id="target" name="target" value="{{ target_value }}" placeholder="Enter target ID" required />
+            <small class="form-text text-muted">Kindly paste the server ID here.</small>
+          </div>
+
+          <div class="form-group">
+            <label class="title_input" for="destination">Destination Server ID</label>
+            <input type="text" class="form-control" id="destination" value="{{ destination_value }}" name="destination" placeholder="Enter destination ID" required />
+            <small class="form-text text-muted">Kindly paste the server ID here.</small>
+          </div>
+
+          <div class="button_action">
+            <button onclick="cleanLogs()" style="font-size: 20px;font-weight: bold!important;float: right;color: #4486D5;" type="submit" class="btn btn-dark">Clone Server</button>
+          </div>
+        </form>
+
+        <hr style="color: white;background-color: white;width: 500px;" />
+        <div class="button_action" style="padding: 0rem 1rem 1rem 8rem;">
+          <button style="font-size: 20px;font-weight: bold!important;" type="button" class="btn btn-dark" data-toggle="modal" data-target="#token_info">How to get the Token</button>
+        </div>
+        <div class="modal fade" id="token_info" tabindex="-1" role="dialog" aria-labelledby="token_infoLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="token_infoLabel">How to get the Token</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div style="padding: 1rem;max-height: 450px!important;overflow-y:auto;" class="modal-body">
+                <p>
+                  - Open the developer console with F12 or ctrl+shift+i.<br />
+                  - Go to the network tab<br />
+                  - Filter by Fetch/XHR<br />
+                  - Choose a request that isn't an error<br />
+                  - Under the request headers -> authorization section, there will be your Discord token. Copy and paste it from there.<br />
+                </p>
+
+                <img width="750px" src="/token_info.png" />
+              </div>
+              <div class="modal-footer">
+                <button   style="font-size: 20px;font-weight: bold!important;float: right;color: #4486D5;" type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="container" id="log" style="padding: 2rem;height: 650px!important;overflow-y: auto;width: 600px;margin-top: 15px;border: 1px solid var(--secondary_dark);border-radius: 5px;">
+          {% for i in last_info %}
+            <p style="color: #4486D5;">{{ i }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
