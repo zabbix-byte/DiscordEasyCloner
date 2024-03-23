@@ -25,11 +25,11 @@ pip install -r requirements.txt
 
 **PowerShell**
 ```sh
-nuitka --mingw64 --standalone --windows-icon-from-exe=window_logo.ico --plugin-enable=multiprocessing --show-memory --show-progress --output-dir=output --include-module=baseapp --include-data-file=window_logo.ico=. --include-data-file=data.json=. --include-data-dir=templates=templates  --include-data-dir=static=static .\DiscordEasyCloner.py ; xcopy baseapp output\DiscordEasyCloner.dist\baseapp /i /s
+nuitka --mingw64 --standalone --plugin-enable=multiprocessing --show-memory --show-progress --output-dir=output --include-module=baseapp --include-data-file=window_logo.ico=. --include-data-file=data.json=. --include-data-dir=templates=templates  --include-data-dir=static=static .\DiscordEasyCloner.py ; xcopy baseapp output\DiscordEasyCloner.dist\baseapp /i /s
 ```
 **CMD**
 ```sh
-nuitka --mingw64 --standalone --windows-icon-from-exe=window_logo.ico --plugin-enable=multiprocessing --show-memory --show-progress --output-dir=output --include-module=baseapp --include-data-file=window_logo.ico=. --include-data-file=data.json=. --include-data-dir=templates=templates  --include-data-dir=static=static .\DiscordEasyCloner.py && xcopy baseapp output\DiscordEasyCloner.dist\baseapp /i /s
+nuitka --mingw64 --standalone --plugin-enable=multiprocessing --show-memory --show-progress --output-dir=output --include-module=baseapp --include-data-file=window_logo.ico=. --include-data-file=data.json=. --include-data-dir=templates=templates  --include-data-dir=static=static .\DiscordEasyCloner.py && xcopy baseapp output\DiscordEasyCloner.dist\baseapp /i /s
 ```
 **The compiled file can be found in the "output/bin" folder**
 
