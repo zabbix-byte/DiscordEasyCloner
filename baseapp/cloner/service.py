@@ -18,7 +18,9 @@ if sys.platform == "win32" and sys.version_info >= (3, 8, 0):
 async def main():
     fmt = "[%(levelname)s] %(message)s"
     logging.basicConfig(
-        level=logging.INFO, format=fmt, filename=data["route"], filemode="w"
+        level=logging.INFO,
+        handlers=[logging.FileHandler(data["route"], "w", "utf-8")],
+        format=fmt,
     )
     client = discord.Client()
 
@@ -34,4 +36,7 @@ async def main():
         await Clone.channels_create(guild_to, guild_from)
         await client.close()
 
-    await client.start(data["token"], bot=False)
+    try:
+        await client.start(data["token"], bot=False)
+    except:
+        logging.info('Token Problems')
