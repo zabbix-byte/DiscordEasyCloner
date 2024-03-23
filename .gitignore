@@ -13,6 +13,8 @@ webrtc_event_logs/
 # C extensions
 *.so
 
+data.json
+
 # Distribution / packaging
 .Python
 build/
