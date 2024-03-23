@@ -2,6 +2,9 @@
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fzabbix-byte%2FDiscordEasyCloner%2F&countColor=%23263759)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=windows&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/Python-3.8-blue?style=for-the-badge&logo=windows&logoColor=white)](https://www.python.org/downloads/)
+[![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=white)](https://github.com/sponsors/zabbix-byte)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+
 
 Introducing **🌀DiscordEasyCloner**, a straightforward app that simplifies the process of duplicating Discord servers. With DiscordEasyCloner, users can replicate servers effortlessly, even without permissions from the original server owner.
 
