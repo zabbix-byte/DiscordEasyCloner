@@ -1,4 +1,4 @@
-﻿# DiscordEasyCloner
+﻿# DiscordEasyCloner | Build in [**Pypulse**](https://github.com/zabbix-byte/PyPulse)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fzabbix-byte%2FDiscordEasyCloner%2F&countColor=%23263759)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=windows&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=windows&logoColor=white)](https://www.python.org/downloads/)
@@ -19,3 +19,5 @@ We welcome contributions from the community. If you'd like to contribute to myto
 If you have any questions, suggestions, or feedback, please don't hesitate to reach out to us at [zabbix@ztrunk.space](mailto:zabbix@ztrunk.space).
 
 We hope PyPulse accelerates your desktop application development and simplifies the integration of web content into your Python projects. Happy coding! 😎🚀
+
+
