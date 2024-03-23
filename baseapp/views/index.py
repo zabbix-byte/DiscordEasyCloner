@@ -11,7 +11,7 @@ from baseapp.cloner.service import main
 
 @view(name="index", path_trigger="/")
 def index(request):
-    config = open(f"{Aplication.Vars.APLICATION_PATH}\\baseapp\\cloner\\data.json", "r")
+    config = open(f"{Aplication.Vars.APLICATION_PATH}\\data.json", "r")
     data = json.loads(config.read())
 
     error = ""
@@ -29,7 +29,7 @@ def index(request):
         data["route"] = f"{Aplication.Vars.APLICATION_PATH}\\static\\info.log"
 
         open(
-            f"{Aplication.Vars.APLICATION_PATH}\\baseapp\\cloner\\data.json", "w"
+            f"{Aplication.Vars.APLICATION_PATH}\\data.json", "w"
         ).write(json.dumps(data))
 
         try:

@@ -7,6 +7,32 @@ Introducing **🌀DiscordEasyCloner**, a straightforward app that simplifies the
 
 ![](https://github.com/zabbix-byte/DiscordEasyCloner/blob/main/aplication_preview.png)
 
+## Util Info 💡
+- #### Get the Discord server ID https://www.alphr.com/discord-find-server-id/
+- #### Get Authentication Token https://gist.github.com/MarvNC/e601f3603df22f36ebd3102c501116c6
+
+## Compile for [Windows OS] 🛠️
+**Please Note**: Compatible with Python 3.8 🐍
+1. Nuitka Installation Instructions 📥
+```sh
+python -m pip install -U nuitka
+```
+2. Install requirements 🐍
+```sh
+pip install -r requirements.txt
+```
+3. Running Command (This process may require some time) 🔄
+
+**PowerShell**
+```sh
+nuitka --mingw64 --standalone --windows-icon-from-exe=window_logo.ico --plugin-enable=multiprocessing --show-memory --show-progress --output-dir=output --include-module=baseapp --include-data-file=window_logo.ico=. --include-data-file=data.json=. --include-data-dir=templates=templates  --include-data-dir=static=static .\DiscordEasyCloner.py ; xcopy baseapp output\DiscordEasyCloner.dist\baseapp /i /s
+```
+**CMD**
+```sh
+nuitka --mingw64 --standalone --windows-icon-from-exe=window_logo.ico --plugin-enable=multiprocessing --show-memory --show-progress --output-dir=output --include-module=baseapp --include-data-file=window_logo.ico=. --include-data-file=data.json=. --include-data-dir=templates=templates  --include-data-dir=static=static .\DiscordEasyCloner.py && xcopy baseapp output\DiscordEasyCloner.dist\baseapp /i /s
+```
+**The compiled file can be found in the "output/bin" folder**
+
 ## Contributing 🤝
 We welcome contributions from the community. If you'd like to contribute to mytool, please follow these guidelines:
 

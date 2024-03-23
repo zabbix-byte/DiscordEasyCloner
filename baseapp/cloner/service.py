@@ -16,7 +16,7 @@ async def main():
 
     data = json.loads(
         open(
-            f"{Aplication.Vars.APLICATION_PATH}\\baseapp\\cloner\\data.json", "r"
+            f"{Aplication.Vars.APLICATION_PATH}\\data.json", "r"
         ).read()
     )
 
