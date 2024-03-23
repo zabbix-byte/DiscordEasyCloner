@@ -34,9 +34,9 @@ def index(request):
         ).write(json.dumps(data))
 
         try:
-            asyncio.run(main())
-            #t1 = threading.Thread(target=asyncio.run, args=(main(), ))
-            #t1.start()
+            #asyncio.run(main())
+            t1 = threading.Thread(target=asyncio.run, args=(main(), ))
+            t1.start()
         except Exception as e:
             error = str(e)
 
