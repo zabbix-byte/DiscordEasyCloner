@@ -6,6 +6,9 @@ from pypulse.Template import Template
 # Specifying application Route
 Aplication.Vars.APLICATION_PATH = os.path.dirname(os.path.abspath(__file__))
 
+
+open(f"{Aplication.Vars.APLICATION_PATH}\\static\\info.log", "w")
+
 # Defining the locations for templates and static files.
 Template.TEMPLATE_PATH = os.path.join(
     Aplication.Vars.APLICATION_PATH, 'templates')

@@ -20,7 +20,6 @@ def index(request):
     destination_value = data["destination"]
 
     if request.get("method") == "POST":
-
         data["token"] = request["body"].get("token").strip()
         token_val = data["token"]
         data["target"] = request["body"].get("target").strip()
@@ -34,8 +33,8 @@ def index(request):
         ).write(json.dumps(data))
 
         try:
-            #asyncio.run(main())
-            t1 = threading.Thread(target=asyncio.run, args=(main(), ))
+            # asyncio.run(main())
+            t1 = threading.Thread(target=asyncio.run, args=(main(),))
             t1.start()
         except Exception as e:
             error = str(e)

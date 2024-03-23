@@ -3,16 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-6" style="border-right: 1px solid var(--secondary_dark);height: 100vh!important;">
-        <h1 style="padding: 1rem;">MADE BY ZABBIX</h1>
-        <form method="post" class="container" style="padding: 1rem 1rem 1rem 1rem;">
+        <h1 style="padding-bottom:0;margin-bottom: 0;margin-top: 20px;">&#127744;DISCORD EASY CLONER</h1>
+        <h3 style="color: #4486D5;margin-top: 0;float:right;margin-right: 70px;">MADE BY ZABBIX</h3>
+        <form method="post" class="container" style="padding: 3rem 1rem 1rem 1rem;">
           <div class="form-group">
             <label class="title_input" for="token">Access Token</label>
-            {% if token_error == True %}
-              <input type="text" class="form-control is-invalid" id="token" value="{{ token_val }}" placeholder="Enter token" name="token" required />
-            {% else %}
-              <input type="text" class="form-control" id="token" name="token" value="{{ token_val }}" placeholder="Enter token" required />
-            {% endif %}
-
+            <input type="text" class="form-control" id="token" name="token" value="{{ token_val }}" placeholder="Enter token" required />
             <small class="form-text text-muted">This is the token to access Discord.</small>
           </div>
 
@@ -29,12 +25,16 @@
           </div>
 
           <div class="button_action">
-            <button onclick="cleanLogs()" style="font-size: 20px;font-weight: bold!important;float: right;color: #4486D5;" type="submit" class="btn btn-dark">Clone Server</button>
+            <button onclick="cleanLogs()"  id="submit-button" style="font-size: 20px;font-weight: bold!important;float: right;color: #4486D5;" type="submit" class="btn btn-dark">
+              Clone Server<div class="spinner-border" id="loading-sec-123" style="width: 20px;height: 20px;display:none;margin-left: 5px;" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </button>
           </div>
         </form>
 
         <hr style="color: white;background-color: white;width: 500px;" />
-        <div class="button_action" style="padding: 0rem 1rem 1rem 8rem;">
+        <div class="button_action" style="padding: 0rem 1rem 1rem 8rem;margin-top: 20px;">
           <button style="font-size: 20px;font-weight: bold!important;" type="button" class="btn btn-dark" data-toggle="modal" data-target="#token_info">How to get the Token</button>
         </div>
         <div class="modal fade" id="token_info" tabindex="-1" role="dialog" aria-labelledby="token_infoLabel" aria-hidden="true">
@@ -56,7 +56,7 @@
                 <img width="750px" src="/token_info.png" />
               </div>
               <div class="modal-footer">
-                <button   style="font-size: 20px;font-weight: bold!important;float: right;color: #4486D5;" type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                <button style="font-size: 20px;font-weight: bold!important;float: right;color: #4486D5;" type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>

@@ -13,18 +13,18 @@ class Clone:
                     logging.info(f"the position {role.name} It has been deleted")
                     await asyncio.sleep(random.randint(1, 1))
             except discord.Forbidden:
-                logging.error(
+                logging.info(
                     f"Error deleting job: {role.name} Insufficient permissions."
                 )
 
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
             except:
-                logging.error(f"Unable to delete job {role.name} unidentified error")
+                logging.info(f"Unable to delete job {role.name} unidentified error")
                 await asyncio.sleep(random.randint(9, 12))
 
     @staticmethod
@@ -47,18 +47,18 @@ class Clone:
                 logging.info(f"The position {role.name} Was raised")
                 await asyncio.sleep(random.randint(1, 2))
             except discord.Forbidden:
-                logging.error(
+                logging.info(
                     f"Error creating job: {role.name} Insufficient permissions."
                 )
                 await asyncio.sleep(random.randint(2, 3))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
             except:
-                logging.error(f"Unable to create task {role.name} unidentified error")
+                logging.info(f"Unable to create task {role.name} unidentified error")
                 await asyncio.sleep(random.randint(9, 12))
 
     @staticmethod
@@ -69,18 +69,18 @@ class Clone:
                 logging.info(f"A category {channel.name} It has been deleted")
                 await asyncio.sleep(1)
             except discord.Forbidden:
-                logging.error(
+                logging.info(
                     f"Error deleting category: {channel.name} Insufficient permissions."
                 )
                 await asyncio.sleep(random.randint(2, 3))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
             except:
-                logging.error(
+                logging.info(
                     f"Unable to delete channel {channel.name} unidentified error"
                 )
                 await asyncio.sleep(random.randint(9, 12))
@@ -103,18 +103,18 @@ class Clone:
                 logging.info(f"A category {channel.name} Was raised")
                 await asyncio.sleep(random.randint(1, 3))
             except discord.Forbidden:
-                logging.error(
+                logging.info(
                     f"Error deleting category: {channel.name} Insufficient permissions."
                 )
                 await asyncio.sleep(random.randint(2, 3))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
             except:
-                logging.error(
+                logging.info(
                     f"Unable to create category {channel.name} unidentified error"
                 )
                 await asyncio.sleep(random.randint(9, 12))
@@ -161,11 +161,11 @@ class Clone:
                 logging.info(f"The text channel {channel_text.name} Was raised")
                 await asyncio.sleep(2.30)
             except discord.Forbidden:
-                logging.error(f"Error creating text channel: {channel_text.name}")
+                logging.info(f"Error creating text channel: {channel_text.name}")
                 await asyncio.sleep(random.randint(8, 10))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
@@ -178,7 +178,7 @@ class Clone:
                     await new_channel.edit(category=category)
                 logging.info(f"The channel {channel_text.name} has been created")
             except:
-                logging.error(f"Error creating text channel: {channel_text.name}")
+                logging.info(f"Error creating text channel: {channel_text.name}")
                 await asyncio.sleep(random.randint(9, 12))
 
         category = None
@@ -218,11 +218,11 @@ class Clone:
                 logging.info(f"The voice channel {channel_voice.name} has been created")
                 await asyncio.sleep(2.20)
             except discord.Forbidden:
-                logging.error(f"Error in voice chanel: {channel_voice.name}")
+                logging.info(f"Error in voice chanel: {channel_voice.name}")
                 await asyncio.sleep(random.randint(6, 7))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
@@ -235,7 +235,7 @@ class Clone:
                     await new_channel.edit(category=category)
                 logging.info(f"The voice channel {channel_voice.name} has been created")
             except:
-                logging.error(f"Error creating voice channel: {channel_voice.name}")
+                logging.info(f"Error creating voice channel: {channel_voice.name}")
 
     @staticmethod
     async def emojis_create(guild_to: discord.Guild, guild_from: discord.Guild):
@@ -247,38 +247,43 @@ class Clone:
                 logging.info(f"The emoji {emoji.name} has been created")
                 await asyncio.sleep(0.50)
             except discord.Forbidden:
-                logging.error(
+                logging.info(
                     f"Error creating emoji: {emoji.name} Insufficient permissions."
                 )
                 await asyncio.sleep(random.randint(2, 3))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    logging.error(
+                    logging.info(
                         f"Many requests were made. Waiting 60 seconds. Details: {e}"
                     )
                     await asyncio.sleep(60)
             except:
-                logging.error(f"Unable to create emoji {emoji.name} Unidentified error")
+                logging.info(f"Unable to create emoji {emoji.name} Unidentified error")
                 await asyncio.sleep(random.randint(9, 12))
 
     @staticmethod
     async def guild_edit(guild_to: discord.Guild, guild_from: discord.Guild):
         try:
-            try:
+            if not getattr(guild_from, 'name', None):
+                logging.info(f"Target id not exists.")
+                return False
+            if not getattr(guild_to, 'name', None):
+                logging.info(f"Destination id not exists.")
+                return False
+            if getattr(guild_from, 'icon_url', None):
                 icon_image = await guild_from.icon_url.read()
-            except discord.errors.DiscordException:
-                logging.error(f"Unable to read icon image from {guild_from.name}")
-                icon_image = None
+            else:
+                logging.info(f"Unable to read icon image from {guild_from.name}")
             await guild_to.edit(name=f"{guild_from.name}")
             if icon_image is not None:
                 try:
                     await guild_to.edit(icon=icon_image)
                     logging.info(f"Changed group icon: {guild_to.name}")
                 except:
-                    logging.error(f"Error changing group icon: {guild_to.name}")
+                    logging.info(f"Error changing group icon: {guild_to.name}")
         except discord.LoginFailure:
-            logging.error(
+            logging.info(
                 "Unable to authenticate to account. Check that the token is correct."
             )
         except discord.Forbidden:
-            logging.error(f"Error changing group icon: {guild_to.name}")
+            logging.info(f"Error changing group icon: {guild_to.name}")
