@@ -13,15 +13,15 @@ Introducing **🌀DiscordEasyCloner**, a straightforward app that simplifies the
 
 ## Compile for [Windows OS] 🛠️
 **Please Note**: Compatible with Python 3.8 🐍
-1. Nuitka Installation Instructions 📥
+### 1. Nuitka Installation Instructions 📥
 ```sh
 python -m pip install -U nuitka
 ```
-2. Install requirements 🐍
+### 2. Install requirements 🐍
 ```sh
 pip install -r requirements.txt
 ```
-3. Running Command (This process may require some time) 🔄
+### 3. Running Command (This process may require some time) 🔄
 
 **PowerShell**
 ```sh
