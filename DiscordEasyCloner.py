@@ -17,6 +17,7 @@ APP_SETTINGS = {
     "debug_file_name": "debug.log",
     "window_size_x": 1270,
     "window_size_y": 720,
+    "titlebar_no_button_maximize": True,
     "icon_path": os.path.join(Aplication.Vars.APLICATION_PATH, "window_logo.ico"),
 }
 
