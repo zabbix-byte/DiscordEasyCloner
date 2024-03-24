@@ -4,7 +4,7 @@
 [![Python Version](https://img.shields.io/badge/Python-3.8-blue?style=for-the-badge&logo=windows&logoColor=white)](https://www.python.org/downloads/)
 [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=white)](https://github.com/sponsors/zabbix-byte)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-
+![](https://img.shields.io/github/downloads/zabbix-byte/DiscordEasyCloner/v1.1/total?style=for-the-badge&logo=windows&logoColor=white)
 
 **🌀DiscordEasyCloner**, a straightforward app that simplifies the process of duplicating Discord servers.
 
