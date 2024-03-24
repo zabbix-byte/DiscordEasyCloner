@@ -6,7 +6,7 @@
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
 
-Introducing **🌀DiscordEasyCloner**, a straightforward app that simplifies the process of duplicating Discord servers. With DiscordEasyCloner, users can replicate servers effortlessly.
+**🌀DiscordEasyCloner**, a straightforward app that simplifies the process of duplicating Discord servers.
 
 ![](https://github.com/zabbix-byte/DiscordEasyCloner/blob/main/aplication_preview.png)
 
